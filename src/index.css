@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Example: Define CSS variables for light/dark themes */
+:root {
+  --background-light: theme('colors.white');
+  --text-light: theme('colors.gray.800');
+  --background-gradient-from-light: theme('colors.blue.50');
+  --background-gradient-via-light: theme('colors.indigo.50');
+  --background-gradient-to-light: theme('colors.purple.50');
+  --card-bg-light: theme('colors.white');
+  --card-shadow-light: theme('boxShadow.md');
+  --input-bg-light: theme('colors.white');
+  --input-border-light: theme('colors.gray.300');
+  --button-bg-light: theme('colors.blue.600');
+  --button-text-light: theme('colors.white');
+  --button-hover-bg-light: theme('colors.blue.700');
+  --text-muted-light: theme('colors.gray.600');
+  --text-error-light: theme('colors.red.600');
+  --icon-color-light: theme('colors.blue.600');
+  --footer-text-light: theme('colors.gray.500');
+}
+
+.dark {
+  --background-dark: theme('colors.gray.900');
+  --text-dark: theme('colors.gray.200');
+  --background-gradient-from-dark: theme('colors.gray.800');
+  --background-gradient-via-dark: theme('colors.slate.800');
+  --background-gradient-to-dark: theme('colors.zinc.800');
+  --card-bg-dark: theme('colors.gray.800');
+  --card-shadow-dark: theme('boxShadow.lg'); /* Slightly stronger shadow for dark */
+  --input-bg-dark: theme('colors.gray.700');
+  --input-border-dark: theme('colors.gray.600');
+  --button-bg-dark: theme('colors.blue.500');
+  --button-text-dark: theme('colors.white');
+  --button-hover-bg-dark: theme('colors.blue.600');
+  --text-muted-dark: theme('colors.gray.400');
+  --text-error-dark: theme('colors.red.400');
+  --icon-color-dark: theme('colors.blue.400');
+  --footer-text-dark: theme('colors.gray.400');
+}
+
+/* Apply base styles using CSS variables */
+body {
+  background-color: var(--background-light);
+  color: var(--text-light);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+}
+
+/* Example usage in components (Tailwind will use these via utility classes) */
+/* You'd typically apply these using Tailwind classes like bg-white dark:bg-gray-900 */
+
+/* Update App background gradient for dark mode */
+.bg-gradient-to-br {
+    background-image: linear-gradient(to bottom right, var(--background-gradient-from-light), var(--background-gradient-via-light), var(--background-gradient-to-light));
+}
+.dark .bg-gradient-to-br {
+    background-image: linear-gradient(to bottom right, var(--background-gradient-from-dark), var(--background-gradient-via-dark), var(--background-gradient-to-dark));
+}
+
+/* Update other elements as needed using dark: prefixes in Tailwind */
+/* e.g., in App.tsx: className="text-gray-800 dark:text-gray-200" */
